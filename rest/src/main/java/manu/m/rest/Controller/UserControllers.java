@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import manu.m.rest.Model.User;
 import manu.m.rest.Repo.UserRepo;
@@ -14,33 +15,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-public class ApiControllers {
+@RequestMapping("/user")
+public class UserControllers {
 
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("/")
-    public String getPage(){
-        return "Welcome";
-    }
-
-    @GetMapping("/users")
+    @GetMapping("")
     public List<User> getUsers(){
         return this.userRepo.findAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public User getUserById(@PathVariable int id){
         return this.userRepo.findById(id).get();
     }
 
-    @PostMapping("/user/create")
+    @PostMapping("/create")
     public String postUser(@RequestBody User user){
         this.userRepo.save(user);
         return "Usuario creado.";
     }
 
-    @PutMapping("/user/update/{id}")
+    @PutMapping("/update/{id}")
     public String putUser(@PathVariable int id, @RequestBody User user){
         User updatedUser = this.userRepo.findById(id).get();
         updatedUser.setName(user.getName());
@@ -50,7 +47,7 @@ public class ApiControllers {
         return "Usuario con id " + id + " actualizado.";
     }
 
-    @DeleteMapping("/user/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable int id){
         this.userRepo.deleteById(id);
         return "Usuario con id " + id + " eliminado";
