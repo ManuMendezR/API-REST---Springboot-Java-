@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/user")
-public class UserControllers {
+public class UserController {
 
     @Autowired
     private UserRepo userRepo;
