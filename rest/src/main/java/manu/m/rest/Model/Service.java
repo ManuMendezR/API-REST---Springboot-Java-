@@ -1,10 +1,12 @@
 package manu.m.rest.Model;
 
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Service {
@@ -18,6 +20,9 @@ public class Service {
 
     @Column
     private double price;
+
+    @ManyToMany(mappedBy = "services")
+    private List<User> users;
 
     public int getId() {
         return id;

@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import manu.m.rest.Model.Service;
+import manu.m.rest.Repo.ServiceRepo;
 import manu.m.rest.Model.User;
 import manu.m.rest.Repo.UserRepo;
 import java.util.List;
@@ -20,6 +23,9 @@ public class UserController {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private ServiceRepo serviceRepo;
 
     @GetMapping("")
     public List<User> getUsers(){
@@ -52,4 +58,20 @@ public class UserController {
         this.userRepo.deleteById(id);
         return "Usuario con id " + id + " eliminado";
     }
+
+    @GetMapping("/get_service/{id}")
+    public List<Service> getUserServices(@PathVariable int id){
+        User user = this.userRepo.findById(id).get();
+        return user.getServices();
+    }
+
+    @PutMapping("/add_service/{user_id}/{service_id}")
+    public String addServiceToUser(@PathVariable int user_id, @PathVariable int service_id){
+        User user = this.userRepo.findById(user_id).get();
+        Service service = this.serviceRepo.findById(service_id).get();
+        user.enrollService(service);
+        this.userRepo.save(user);
+        return "Se ha añadido el servicio con id " + service_id + " al usuario con id " + user_id;
+    }
+    
 }
