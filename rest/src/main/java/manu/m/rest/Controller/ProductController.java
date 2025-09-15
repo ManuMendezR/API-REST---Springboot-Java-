@@ -11,44 +11,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import manu.m.rest.Model.Product;
-import manu.m.rest.Repo.ProductRepo;
+import manu.m.rest.Service.ProductService;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
     @Autowired
-    ProductRepo productRepo;
+    ProductService productService;
 
     @GetMapping("")
-    public List<Product> getProducts(){
-        return this.productRepo.findAll();
+    public List<Product> getProductsController(){
+        return this.productService.getProductsService();
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable int id){
-        return this.productRepo.findById(id).get();
+    public Product getProductByIdController(@PathVariable int id){
+        return this.productService.getProductByIdService(id);
     }
 
     @PostMapping("")
-    public String postProduct(@RequestBody Product product){
-        this.productRepo.save(product);
-        return "Servicio creado";
+    public String postProductController(@RequestBody Product product){
+        return this.productService.postProductService(product);
     }
 
     @PutMapping("/{id}")
-    public String putProduct(@PathVariable int id, @RequestBody Product product){
-        Product updatedProduct = this.productRepo.findById(id).get();
-        updatedProduct.setPrice(product.getPrice());
-        updatedProduct.setProductName(product.getProductName());
-        this.productRepo.save(updatedProduct);
-        return "Servicio con id " + id + " actualizado";
+    public String putProductController(@PathVariable int id, @RequestBody Product product){
+        return this.productService.putProductService(id, product);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteProduct(@PathVariable int id){
-        this.productRepo.deleteById(id);
-        return "Servicio con id " + id + " eliminado";
+    public String deleteProductController(@PathVariable int id){
+        return this.productService.deleteProductService(id);
     }
 
 }
