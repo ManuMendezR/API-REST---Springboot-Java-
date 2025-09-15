@@ -10,44 +10,44 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import manu.m.rest.Model.Service;
-import manu.m.rest.Repo.ServiceRepo;
+import manu.m.rest.Model.Product;
+import manu.m.rest.Repo.ProductRepo;
 
 @RestController
-@RequestMapping("/service")
-public class ServiceController {
+@RequestMapping("/product")
+public class ProductController {
 
     @Autowired
-    ServiceRepo serviceRepo;
+    ProductRepo productRepo;
 
     @GetMapping("")
-    public List<Service> getServices(){
-        return this.serviceRepo.findAll();
+    public List<Product> getProducts(){
+        return this.productRepo.findAll();
     }
 
     @GetMapping("/{id}")
-    public Service getServiceById(@PathVariable int id){
-        return this.serviceRepo.findById(id).get();
+    public Product getProductById(@PathVariable int id){
+        return this.productRepo.findById(id).get();
     }
 
     @PostMapping("")
-    public String postService(@RequestBody Service service){
-        this.serviceRepo.save(service);
+    public String postProduct(@RequestBody Product product){
+        this.productRepo.save(product);
         return "Servicio creado";
     }
 
     @PutMapping("/{id}")
-    public String putService(@PathVariable int id, @RequestBody Service service){
-        Service updatedService = this.serviceRepo.findById(id).get();
-        updatedService.setPrice(service.getPrice());
-        updatedService.setServiceName(service.getServiceName());
-        this.serviceRepo.save(updatedService);
+    public String putProduct(@PathVariable int id, @RequestBody Product product){
+        Product updatedProduct = this.productRepo.findById(id).get();
+        updatedProduct.setPrice(product.getPrice());
+        updatedProduct.setProductName(product.getProductName());
+        this.productRepo.save(updatedProduct);
         return "Servicio con id " + id + " actualizado";
     }
 
     @DeleteMapping("/{id}")
-    public String deleteService(@PathVariable int id){
-        this.serviceRepo.deleteById(id);
+    public String deleteProduct(@PathVariable int id){
+        this.productRepo.deleteById(id);
         return "Servicio con id " + id + " eliminado";
     }
 

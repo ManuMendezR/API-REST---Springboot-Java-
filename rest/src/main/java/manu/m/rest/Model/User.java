@@ -27,10 +27,10 @@ public class User {
     private String email;
 
     @ManyToMany
-    @JoinTable(name = "userHasService", 
+    @JoinTable(name = "userHasProduct", 
       joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"), 
-      inverseJoinColumns = @JoinColumn(name = "serviceId", referencedColumnName = "id"))
-    private List<Service> services;
+      inverseJoinColumns = @JoinColumn(name = "productId", referencedColumnName = "id"))
+    private List<Product> products;
 
     public int getId() {
         return id;
@@ -64,16 +64,16 @@ public class User {
         this.email = email;
     }
 
-    public List<Service> getServices(){
-        return services;
+    public List<Product> getProducts(){
+        return products;
     }
 
-    public void enrollService(Service service){
-        this.services.add(service);
+    public void enrollProduct(Product product){
+        this.products.add(product);
     }
 
-    public void removeService(int id){
-        this.services.removeIf(servicio -> servicio.getId() == id);
+    public void removeProduct(int id){
+        this.products.removeIf(servicio -> servicio.getId() == id);
     }
     
 }

@@ -9,19 +9,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Service {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column 
-    private String serviceName;
+    private String productName;
 
     @Column
     private double price;
 
-    @ManyToMany(mappedBy = "services")
+    @ManyToMany(mappedBy = "products")
     private List<User> users;
 
     public int getId() {
@@ -32,12 +32,12 @@ public class Service {
         this.id = id;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setServiceName(String nombreServicio) {
-        this.serviceName = nombreServicio;
+    public void setProductName(String nombreServicio) {
+        this.productName = nombreServicio;
     }
 
     public double getPrice() {

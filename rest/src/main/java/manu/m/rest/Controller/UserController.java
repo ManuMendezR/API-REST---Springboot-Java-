@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import manu.m.rest.Model.Service;
-import manu.m.rest.Repo.ServiceRepo;
+import manu.m.rest.Model.Product;
+import manu.m.rest.Repo.ProductRepo;
 import manu.m.rest.Model.User;
 import manu.m.rest.Repo.UserRepo;
 import java.util.List;
@@ -25,7 +25,7 @@ public class UserController {
     private UserRepo userRepo;
 
     @Autowired
-    private ServiceRepo serviceRepo;
+    private ProductRepo productRepo;
 
     @GetMapping("")
     public List<User> getUsers(){
@@ -59,31 +59,31 @@ public class UserController {
         return "Usuario con id " + id + " eliminado";
     }
 
-    @GetMapping("/get_service/{id}")
-    public List<Service> getUserServices(@PathVariable int id){
+    @GetMapping("/get_product/{id}")
+    public List<Product> getUserProducts(@PathVariable int id){
         User user = this.userRepo.findById(id).get();
-        return user.getServices();
+        return user.getProducts();
     }
 
-    @PutMapping("/add_service/{user_id}/{service_id}")
-    public String addServiceToUser(@PathVariable int user_id, @PathVariable int service_id){
+    @PutMapping("/add_product/{user_id}/{product_id}")
+    public String addProductToUser(@PathVariable int user_id, @PathVariable int product_id){
         User user = this.userRepo.findById(user_id).get();
-        Service service = this.serviceRepo.findById(service_id).get();
-        user.enrollService(service);
+        Product product = this.productRepo.findById(product_id).get();
+        user.enrollProduct(product);
         this.userRepo.save(user);
-        return "Se ha añadido el servicio con id " + service_id + " al usuario con id " + user_id;
+        return "Se ha añadido el servicio con id " + product_id + " al usuario con id " + user_id;
     }
 
-    @PutMapping("/remove_service/{user_id}/{service_id}")
-    public String removeServiceFromUser(@PathVariable int user_id, @PathVariable int service_id){
+    @PutMapping("/remove_product/{user_id}/{product_id}")
+    public String removeProductFromUser(@PathVariable int user_id, @PathVariable int product_id){
         User user = this.userRepo.findById(user_id).get();
-        for(Service servicio : user.getServices()){
-            if(servicio.getId() == service_id){
-                user.removeService(service_id);
+        for(Product servicio : user.getProducts()){
+            if(servicio.getId() == product_id){
+                user.removeProduct(product_id);
                 this.userRepo.save(user);
             }
         }
-        return "Se ha eliminado el servicio con id " + service_id + " del usuario con id " + user_id;
+        return "Se ha eliminado el servicio con id " + product_id + " del usuario con id " + user_id;
     }
     
 }
