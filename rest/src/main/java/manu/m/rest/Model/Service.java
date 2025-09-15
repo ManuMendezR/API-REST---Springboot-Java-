@@ -14,10 +14,10 @@ public class Service {
     private int id;
 
     @Column 
-    private String nombreServicio;
+    private String serviceName;
 
     @Column
-    private double precio;
+    private double price;
 
     public int getId() {
         return id;
@@ -27,20 +27,20 @@ public class Service {
         this.id = id;
     }
 
-    public String getNombreServicio() {
-        return nombreServicio;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setNombreServicio(String nombreServicio) {
-        this.nombreServicio = nombreServicio;
+    public void setServiceName(String nombreServicio) {
+        this.serviceName = nombreServicio;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrice(double precio) {
+        this.price = precio;
     }
 
     
