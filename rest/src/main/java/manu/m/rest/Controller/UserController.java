@@ -73,5 +73,17 @@ public class UserController {
         this.userRepo.save(user);
         return "Se ha añadido el servicio con id " + service_id + " al usuario con id " + user_id;
     }
+
+    @PutMapping("/remove_service/{user_id}/{service_id}")
+    public String removeServiceFromUser(@PathVariable int user_id, @PathVariable int service_id){
+        User user = this.userRepo.findById(user_id).get();
+        for(Service servicio : user.getServices()){
+            if(servicio.getId() == service_id){
+                user.removeService(service_id);
+                this.userRepo.save(user);
+            }
+        }
+        return "Se ha eliminado el servicio con id " + service_id + " del usuario con id " + user_id;
+    }
     
 }

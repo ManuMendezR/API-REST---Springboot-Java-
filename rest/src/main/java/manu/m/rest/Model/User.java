@@ -71,5 +71,9 @@ public class User {
     public void enrollService(Service service){
         this.services.add(service);
     }
+
+    public void removeService(int id){
+        this.services.removeIf(servicio -> servicio.getId() == id);
+    }
     
 }
