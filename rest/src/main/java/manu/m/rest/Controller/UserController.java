@@ -31,13 +31,13 @@ public class UserController {
         return this.userRepo.findById(id).get();
     }
 
-    @PostMapping("/create")
+    @PostMapping("")
     public String postUser(@RequestBody User user){
         this.userRepo.save(user);
         return "Usuario creado.";
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public String putUser(@PathVariable int id, @RequestBody User user){
         User updatedUser = this.userRepo.findById(id).get();
         updatedUser.setName(user.getName());
@@ -47,7 +47,7 @@ public class UserController {
         return "Usuario con id " + id + " actualizado.";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable int id){
         this.userRepo.deleteById(id);
         return "Usuario con id " + id + " eliminado";
