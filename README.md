@@ -15,7 +15,7 @@ Para dividir la logica de la API he utilizado la siguiente estructura:
 
 **Modelos:** Son los archivos que **contienen la informacion de las distintas entidades** que formarán la base de datos.
 
-**Repositorios:** Son los archivos que **se encargan de hacer las operaciones contra la base de datos** de manera transparente al usuario utilizando **JPA** (Java Persistence API) e **Hibernate**
+**Repositorios:** Son los archivos que **se encargan de hacer las operaciones contra la base de datos** de manera transparente al usuario utilizando **JPA** (Java Persistence API)
 
 **Servicios:** Son los archivos que **contienen la logica de los distintos endpoints de la API**. Son invocados desde los controladores.
 
