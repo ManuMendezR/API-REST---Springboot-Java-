@@ -27,7 +27,7 @@ Para dividir la logica de la API he utilizado la siguiente estructura:
 
 En el archivo **application.properties** se establecen los distintos parámetros que necesita la api para poder conectarse a la base de datos. En este caso, la información está hardcodeada, pero en un entorno real serían parámetros obtenidos de forma externa.
 
-Para probar la aplicación de manera local **hay que modificar los datos de la url (modificando el nombre del esquema que aparece delante de la ultima "/"), el nombre de usuario y la contraseña para que coincidan con los que se van a usar en MySQL Workbench**
+Para probar la aplicación de manera local **hay que modificar los datos de la url (modificando el nombre del esquema que aparece delante de la ultima "/" y el puerto en caso de que se haya modificado y no sea 3306), el nombre de usuario y la contraseña para que coincidan con los que se van a usar en MySQL Workbench**
 
 ![alt text](configuracion_bbdd.png)
 
