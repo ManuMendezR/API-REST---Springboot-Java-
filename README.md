@@ -9,7 +9,7 @@ La base de datos es una sencilla relación entre un usuario y los distintos prod
 
 ## Estructura del proyecto
 
-Para dividir la logica de la API he utilizado tres carpetas:
+Para dividir la logica de la API he utilizado la siguiente estructura:
 
 **Controladores:**  Son los archivos en los que se encuentran los **endpoints** y que reciben las peticiones a la API.
 
