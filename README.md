@@ -35,7 +35,7 @@ Para probar la aplicación de manera local **hay que modificar los datos de la u
 
 Para ejemplificar este apartado utilizaré la tabla de los productos. Los endpoints permiten realizar un **CRUD** completo el cual se puede probar usando una aplicación como Postman, habiendo previamente iniciado la API.
 
-### Post
+### Post (*Create*)
 
 Para hacer estas peticiones hay que **indicar en el cuerpo de la petición los datos** con los que se va a crear el producto.
 
@@ -43,16 +43,22 @@ Para hacer estas peticiones hay que **indicar en el cuerpo de la petición los d
 
 ![alt text](post2.png)
 
-### Get
+### Get (*Read*)
 
 Este tipo de peticiones se pueden hacer de forma general, obteniendo todos los resultados (**devolviendo una lista de objetos**) u obteniendo uno especifico (**devolviendo un objeto**) indicando el id en la ruta del endpoint.
 
 ![alt text](get1.png) ![alt text](get2.png)
 
-### Put
+### Put (*Update*)
 
 Para estas peticiones, hay que indicar en la ruta de la misma el **id del producto que queremos actualiza**r y en el cuerpo **establecer los nuevos valores**.
 
 ![alt text](put1.png) 
 
 ![alt text](put2.png)
+
+### Delete
+
+Para utilizar esta petición hay que **indicar el id del producto que se quiere borrar** de la base de datos en la ruta.
+
+![alt text](delete1.png) 
