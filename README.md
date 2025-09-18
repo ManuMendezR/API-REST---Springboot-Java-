@@ -37,6 +37,9 @@ Para ejemplificar este apartado utilizaré la tabla de los productos. Los endpoi
 
 ### Get
 
-Este tipo de peticiones se pueden hacer de forma general, obteniendo todos los resultados u obteniendo uno especifico indicando el id en la ruta del endpoint.
+Este tipo de peticiones se pueden hacer de forma general, obteniendo todos los resultados (**devolviendo una lista de objetos**) u obteniendo uno especifico (**devolviendo un objeto**) indicando el id en la ruta del endpoint.
 
 ![alt text](get1.png) ![alt text](get2.png)
+
+
+![alt text](get3.png) ![alt text](get4.png)
