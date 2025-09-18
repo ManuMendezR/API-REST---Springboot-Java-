@@ -41,5 +41,10 @@ Este tipo de peticiones se pueden hacer de forma general, obteniendo todos los r
 
 ![alt text](get1.png) ![alt text](get2.png)
 
+### Post
 
-![alt text](get3.png) ![alt text](get4.png)
+Para hacer estas peticiones hay que **indicar en el cuerpo de la petición los datos** con los que se va a crear el producto.
+
+![alt text](post1.png) 
+
+![alt text](post2.png)
