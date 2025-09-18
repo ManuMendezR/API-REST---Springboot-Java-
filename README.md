@@ -31,3 +31,12 @@ Para probar la aplicación de manera local **hay que modificar los datos de la u
 
 ![alt text](configuracion_bbdd.png)
 
+## 🧪 Como utilizar la API
+
+Para ejemplificar este apartado utilizaré la tabla de los productos. Los endpoints permiten realizar un **CRUD** completo
+
+### Get
+
+Este tipo de peticiones se pueden hacer de forma general, obteniendo todos los resultados u obteniendo uno especifico indicando el id en la ruta del endpoint.
+
+![alt text](get1.png) ![alt text](get2.png)
