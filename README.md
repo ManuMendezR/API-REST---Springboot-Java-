@@ -33,7 +33,7 @@ Para probar la aplicación de manera local **hay que modificar los datos de la u
 
 ## 🧪 Como utilizar la API
 
-Para ejemplificar este apartado utilizaré la tabla de los productos. Los endpoints permiten realizar un **CRUD** completo el cual se puede probar usando una aplicación como Postman, habiendo previamente iniciado la API.
+Para ejemplificar este apartado utilizaré la tabla de los productos. Los endpoints permiten realizar un **CRUD** completo el cual se puede probar usando una aplicación como **Postman**, habiendo previamente iniciado la API.
 
 ### Post (*Create*)
 
