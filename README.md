@@ -1,13 +1,13 @@
-# API REST Springboot Java
+# ⚙️ API REST Springboot Java
 API Rest hecha con el framework **Springboot** utilizando el lenguaje **Java** con base de datos **MYSQL** en un entorno local.
 
-## Esquema de la base de datos
+## 💾 Esquema de la base de datos
 
 La base de datos es una sencilla relación entre un usuario y los distintos productos que puede tener asociados, creando una relación n:m lo que prepara el escenario para probar los distintos endpoints que utiliza una API en un entorno de producción.
 
 ![alt text](esquema_bbdd.drawio.png)
 
-## Estructura del proyecto
+## 🗂️ Estructura del proyecto
 
 Para dividir la logica de la API he utilizado la siguiente estructura:
 
@@ -23,7 +23,7 @@ Para dividir la logica de la API he utilizado la siguiente estructura:
 
 ![alt text](estructura_del_proyecto.png)
 
-## Configuración de la base de datos
+## 🐬 Configuración de la base de datos
 
 En el archivo **application.properties** se establecen los distintos parámetros que necesita la api para poder conectarse a la base de datos. En este caso, la información está hardcodeada, pero en un entorno real serían parámetros obtenidos de forma externa.
 
